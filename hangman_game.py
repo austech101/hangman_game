@@ -4,7 +4,7 @@ from randomwords import rndm_words
 
 def valid_word(rndm_words):
     word = random.choice(rndm_words) #randomly choose a word from the randomwords list
-    while "-" in rndm_words or " " in rndm_words:
+    while "-" in word or " " in word:
         word = random.choice(rndm_words) # We get a word that doesn't have a dash or space in it when it stops iterating
     return word
 # we need to be able to keep track of which letters we've guessed and which letters in the word, we've correctly guessed
@@ -26,7 +26,7 @@ def hangman():
         
         user_letter = input("Enter a Letter: ").upper()
         print(user_letter)    
-        if user_letter in alphabet - used_letters:
+        if used_letter in alphabet - used_letters:
             used_letters.add(user_letter)
             if used_letters in word_letters:        
                 word_letters.remove(user_letter)     
